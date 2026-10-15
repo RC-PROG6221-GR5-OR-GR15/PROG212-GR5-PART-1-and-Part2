@@ -1,7 +1,144 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Student\\source\\repos\\Marathon\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\migrations\\20261015102330_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\migrations\\20261015102330_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\controllers\\resultscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\controllers\\resultscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\controllers\\participanteventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\controllers\\participanteventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\controllers\\enrolmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\controllers\\enrolmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\dtos\\neweventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\dtos\\neweventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\dtos\\register_participant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\dtos\\register_participant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\dtos\\updateeventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\dtos\\updateeventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\dtos\\newcategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\dtos\\newcategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\dtos\\enrolldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\dtos\\enrolldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\dtos\\edit_existing_userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\dtos\\edit_existing_userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\dtos\\edit_categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\dtos\\edit_categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\dtos\\add_new_userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\dtos\\add_new_userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\entities\\useraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\entities\\useraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\entities\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\entities\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\entities\\participant_event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\entities\\participant_event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\entities\\enrolment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\entities\\enrolment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\models\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\models\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\migrations\\20261015102330_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\migrations\\20261015102330_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|c:\\users\\student\\documents\\github\\prog212-gr5-part-1\\application\\marathon\\marathon\\marathon.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DC903844-F2B4-4E6C-B84D-E30F66275B31}|Marathon\\Marathon.csproj|solutionrelative:marathon\\marathon.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,15 +146,461 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbcontextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Migrations\\ApplicationDbcontextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Marathon\\Migrations\\ApplicationDbcontextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Migrations\\ApplicationDbcontextModelSnapshot.cs",
+              "RelativeToolTip": "Marathon\\Migrations\\ApplicationDbcontextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:42:28.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20261015102330_initialCreate.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Migrations\\20261015102330_initialCreate.Designer.cs",
+              "RelativeDocumentMoniker": "Marathon\\Migrations\\20261015102330_initialCreate.Designer.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Migrations\\20261015102330_initialCreate.Designer.cs",
+              "RelativeToolTip": "Marathon\\Migrations\\20261015102330_initialCreate.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:42:24.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Program.cs",
+              "RelativeDocumentMoniker": "Marathon\\Program.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Program.cs",
+              "RelativeToolTip": "Marathon\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:07:52.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Marathon\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "Marathon\\Controllers\\CategoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:33:21.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EnrolmentController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\EnrolmentController.cs",
+              "RelativeDocumentMoniker": "Marathon\\Controllers\\EnrolmentController.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\EnrolmentController.cs",
+              "RelativeToolTip": "Marathon\\Controllers\\EnrolmentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:33:34.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Marathon\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Marathon\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:19:07.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EventsController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\EventsController.cs",
+              "RelativeDocumentMoniker": "Marathon\\Controllers\\EventsController.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\EventsController.cs",
+              "RelativeToolTip": "Marathon\\Controllers\\EventsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:33:40.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ParticipantEventController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\ParticipantEventController.cs",
+              "RelativeDocumentMoniker": "Marathon\\Controllers\\ParticipantEventController.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\ParticipantEventController.cs",
+              "RelativeToolTip": "Marathon\\Controllers\\ParticipantEventController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:33:44.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResultsController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\ResultsController.cs",
+              "RelativeDocumentMoniker": "Marathon\\Controllers\\ResultsController.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\ResultsController.cs",
+              "RelativeToolTip": "Marathon\\Controllers\\ResultsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:33:57.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "Marathon\\Controllers\\RolesController.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "Marathon\\Controllers\\RolesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:34:01.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Marathon\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Marathon\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:34:07.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Add_New_UserDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\Add_New_UserDTO.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\DTOs\\Add_New_UserDTO.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\Add_New_UserDTO.cs",
+              "RelativeToolTip": "Marathon\\Models\\DTOs\\Add_New_UserDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:37:31.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Edit_CategoryDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\Edit_CategoryDTO.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\DTOs\\Edit_CategoryDTO.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\Edit_CategoryDTO.cs",
+              "RelativeToolTip": "Marathon\\Models\\DTOs\\Edit_CategoryDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:37:41.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Edit_Existing_UserDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\Edit_Existing_UserDTO.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\DTOs\\Edit_Existing_UserDTO.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\Edit_Existing_UserDTO.cs",
+              "RelativeToolTip": "Marathon\\Models\\DTOs\\Edit_Existing_UserDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:38:17.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "EnrollDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\EnrollDTO.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\DTOs\\EnrollDTO.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\EnrollDTO.cs",
+              "RelativeToolTip": "Marathon\\Models\\DTOs\\EnrollDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:38:23.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LoginDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\LoginDTO.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\DTOs\\LoginDTO.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\LoginDTO.cs",
+              "RelativeToolTip": "Marathon\\Models\\DTOs\\LoginDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:38:28.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "NewCategoryDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\NewCategoryDTO.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\DTOs\\NewCategoryDTO.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\NewCategoryDTO.cs",
+              "RelativeToolTip": "Marathon\\Models\\DTOs\\NewCategoryDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:38:32.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UpdateEventDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\UpdateEventDTO.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\DTOs\\UpdateEventDTO.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\UpdateEventDTO.cs",
+              "RelativeToolTip": "Marathon\\Models\\DTOs\\UpdateEventDTO.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:38:37.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "NewEventDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\NewEventDTO.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\DTOs\\NewEventDTO.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\NewEventDTO.cs",
+              "RelativeToolTip": "Marathon\\Models\\DTOs\\NewEventDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:38:50.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RegisterDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\RegisterDTO.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\DTOs\\RegisterDTO.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\RegisterDTO.cs",
+              "RelativeToolTip": "Marathon\\Models\\DTOs\\RegisterDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:38:41.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Register_Participant.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\Register_Participant.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\DTOs\\Register_Participant.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\DTOs\\Register_Participant.cs",
+              "RelativeToolTip": "Marathon\\Models\\DTOs\\Register_Participant.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:38:45.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\UserRole.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\Entities\\UserRole.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\UserRole.cs",
+              "RelativeToolTip": "Marathon\\Models\\Entities\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:36:16.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "UserAccount.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\UserAccount.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\Entities\\UserAccount.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\UserAccount.cs",
+              "RelativeToolTip": "Marathon\\Models\\Entities\\UserAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:36:05.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\User.cs",
+              "RelativeToolTip": "Marathon\\Models\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:35:55.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Role.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\Entities\\Role.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Role.cs",
+              "RelativeToolTip": "Marathon\\Models\\Entities\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:35:51.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Result.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Result.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\Entities\\Result.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Result.cs",
+              "RelativeToolTip": "Marathon\\Models\\Entities\\Result.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:35:47.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Participant_Event.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Participant_Event.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\Entities\\Participant_Event.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Participant_Event.cs",
+              "RelativeToolTip": "Marathon\\Models\\Entities\\Participant_Event.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:35:43.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Event.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\Entities\\Event.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Event.cs",
+              "RelativeToolTip": "Marathon\\Models\\Entities\\Event.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:35:40.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Enrolment.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Enrolment.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\Entities\\Enrolment.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Enrolment.cs",
+              "RelativeToolTip": "Marathon\\Models\\Entities\\Enrolment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:35:35.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Category.cs",
+              "RelativeDocumentMoniker": "Marathon\\Models\\Entities\\Category.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Models\\Entities\\Category.cs",
+              "RelativeToolTip": "Marathon\\Models\\Entities\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:35:20.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ApplicationDbcontext.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Data\\ApplicationDbcontext.cs",
+              "RelativeDocumentMoniker": "Marathon\\Data\\ApplicationDbcontext.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Data\\ApplicationDbcontext.cs",
+              "RelativeToolTip": "Marathon\\Data\\ApplicationDbcontext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:35:11.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "20261015102330_initialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Migrations\\20261015102330_initialCreate.cs",
+              "RelativeDocumentMoniker": "Marathon\\Migrations\\20261015102330_initialCreate.cs",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Migrations\\20261015102330_initialCreate.cs",
+              "RelativeToolTip": "Marathon\\Migrations\\20261015102330_initialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T10:23:31.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\appsettings.json",
+              "RelativeDocumentMoniker": "Marathon\\appsettings.json",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\appsettings.json",
+              "RelativeToolTip": "Marathon\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-15T10:09:40.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Marathon",
+              "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Marathon.csproj",
+              "RelativeDocumentMoniker": "Marathon\\Marathon.csproj",
+              "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\PROG212-GR5-PART-1\\Application\\Marathon\\Marathon\\Marathon.csproj",
+              "RelativeToolTip": "Marathon\\Marathon.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-15T10:01:47.141Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Race_Day.Models
+namespace Marathon.Models
 {
     public class Event
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace Race_Day.Models
+namespace Marathon.Models
 {
     public class Category
     {

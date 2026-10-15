@@ -1,4 +1,4 @@
-﻿namespace Race_Day.Models.DTOs
+﻿namespace Marathon.Models.DTOs
 {
     public class UpdateEventDTO
     {
