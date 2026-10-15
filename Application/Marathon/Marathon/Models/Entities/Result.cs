@@ -5,6 +5,8 @@ namespace Marathon.Models
 {
     public class Result
     {
+    
+
         [Key]
         public Guid ResultId { get; set; } = Guid.NewGuid();
         [ForeignKey("participant_event_id")]
@@ -15,5 +17,6 @@ namespace Marathon.Models
         public required string overall_rank { get; set; }
         public required decimal prize_money { get; set; }
         public required string category_rank { get; set; }
+        
     }
 }
