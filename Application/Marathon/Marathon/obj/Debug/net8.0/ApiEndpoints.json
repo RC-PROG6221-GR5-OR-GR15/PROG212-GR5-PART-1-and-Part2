@@ -147,6 +147,69 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Marathon.Controllers.EnrolmentController",
+    "Method": "GetAllEnrolments",
+    "RelativePath": "api/Enrolment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.EnrolmentController",
+    "Method": "GetEnrolmentById",
+    "RelativePath": "api/Enrolment/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.EnrolmentController",
+    "Method": "UpdateEnrolmentStatus",
+    "RelativePath": "api/Enrolment/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "statusDTO",
+        "Type": "Marathon.Models.DTOs.StatusDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.EnrolmentController",
+    "Method": "GetEnrolmentsByUserId",
+    "RelativePath": "api/Enrolment/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Marathon.Controllers.EventsController",
     "Method": "GetEvents",
     "RelativePath": "api/Events",
@@ -226,6 +289,101 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Marathon.Controllers.ResultsController",
+    "Method": "GetAllResults",
+    "RelativePath": "api/Results",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.ResultsController",
+    "Method": "CreateResult",
+    "RelativePath": "api/Results",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Marathon.Models.DTOs.CreateResultDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.ResultsController",
+    "Method": "GetResultById",
+    "RelativePath": "api/Results/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.ResultsController",
+    "Method": "UpdateResult",
+    "RelativePath": "api/Results/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Marathon.Models.DTOs.UpdateResultDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.ResultsController",
+    "Method": "DeleteResult",
+    "RelativePath": "api/Results/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.ResultsController",
+    "Method": "GetResultsForEnrolment",
+    "RelativePath": "api/Results/enrolment/{participantEventId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "participantEventId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Marathon.Controllers.RolesController",
     "Method": "GetAllRoles",
     "RelativePath": "api/Roles",
@@ -233,6 +391,59 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.RolesController",
+    "Method": "AddNewRole",
+    "RelativePath": "api/Roles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nrDTO",
+        "Type": "Marathon.Models.DTOs.NewRoleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.RolesController",
+    "Method": "UpdateRole",
+    "RelativePath": "api/Roles/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "nrDTO",
+        "Type": "Marathon.Models.DTOs.NewRoleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Marathon.Controllers.RolesController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/Roles/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
