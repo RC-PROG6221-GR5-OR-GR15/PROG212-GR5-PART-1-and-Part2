@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Race_Day.Controllers
+namespace Marathon.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -3,14 +3,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Race_Day.Data;
-using Race_Day.Models;
-using Race_Day.Models.DTOs;
+using Marathon.Data;
+using Marathon.Models;
+using Marathon.Models.DTOs;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Race_Day.Controllers
+namespace Marathon.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

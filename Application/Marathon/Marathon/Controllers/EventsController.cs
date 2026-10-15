@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Race_Day.Data;
-using Race_Day.Models;
-using Race_Day.Models.DTOs;
+using Marathon.Data;
+using Marathon.Models;
+using Marathon.Models.DTOs;
 
-namespace Race_Day.Controllers
+namespace Marathon.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Race_Day.Data;
+using Marathon.Data;
 
-namespace Race_Day.Controllers
+namespace Marathon.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
