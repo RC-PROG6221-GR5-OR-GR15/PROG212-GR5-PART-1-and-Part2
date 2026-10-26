@@ -30,9 +30,6 @@ namespace Marathon.Controllers
             _hasher = hasher;
         }
 
-        // ------------------------------------------------------------
-        // POST: api/auth/register
-        // ------------------------------------------------------------
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDTO regDto)
         {
@@ -60,9 +57,7 @@ namespace Marathon.Controllers
             });
         }
 
-        // ------------------------------------------------------------
-        // POST: api/auth/login
-        // ------------------------------------------------------------
+       
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDTO logDto)
         {
@@ -91,9 +86,6 @@ namespace Marathon.Controllers
             });
         }
 
-        // ------------------------------------------------------------
-        // GET: api/auth/me   (requires JWT)
-        // ------------------------------------------------------------
         [Authorize]
         [HttpGet("me")]
         public async Task<IActionResult> Me()
@@ -114,9 +106,6 @@ namespace Marathon.Controllers
             });
         }
 
-        // ------------------------------------------------------------
-        // Helper — private so Swagger ignores it
-        // ------------------------------------------------------------
         private string GenerateJwtToken(UserAccount user)
         {
             var key = new SymmetricSecurityKey(
