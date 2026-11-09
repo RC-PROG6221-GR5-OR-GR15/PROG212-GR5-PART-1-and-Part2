@@ -179,3 +179,54 @@ CREATE TABLE RESULT (
 
     UNIQUE (participant_event_id)
 );
+
+-- SEED DATA
+-- Seed Roles
+INSERT INTO `ROLE` (role_name, description) VALUES 
+('Organiser', 'Manages events, categories, and results'),
+('Participant', 'Enrols in events and views personal results'),
+('Admin', 'Full administrative access to events, users, roles and results');
+
+-- Seed Users
+-- All seeded accounts below use the password: Passw0rd!
+-- password_hash values are ASP.NET Core Identity PBKDF2 (IdentityV3, HMAC-SHA256, 100 000 iterations)
+-- hashes, so they verify against PasswordHasher<T> in the API and can be used to sign in immediately.
+INSERT INTO `USER` (username, email, password_hash, first_name, last_name, date_of_birth, phone) VALUES 
+('jdoe_admin', 'johndoe@example.com', 'AQAAAAEAAYagAAAAEB9wjqUf5IvHKsH+P3dr0p7R3/zVFxM3QJN3KA3RJJBPv/7s/Gxr2rRdneWY/n/5wg==', 'John', 'Doe', '1985-05-15', '0123456789'),
+('asmith_org', 'alicesmith@example.com', 'AQAAAAEAAYagAAAAEGOAiAGm/04aPMqGtS1vFVzL/obwbUEB7iMdDLr6oUiIrvyL8W536bkIVn1o1UAHUw==', 'Alice', 'Smith', '1990-08-22', '0987654321'),
+('bwilson_part', 'bobwilson@example.com', 'AQAAAAEAAYagAAAAENOkxb/KTkYwo/cWIjTmUq2ThknL70wZOA8GPull/q/1Tf9ShuYgN76Vczihz8F/qg==', 'Bob', 'Wilson', '1995-12-01', '0555123456'),
+('cgreen_part', 'charliegreen@example.com', 'AQAAAAEAAYagAAAAEEPLwm3WMvK/Cpp08YaB6ysesnRMjwcnHb5+witBPuv8JrwlMvA2j+vK0QsVhj+nTQ==', 'Charlie', 'Green', '1998-03-10', '0555987654');
+
+-- Seed User Roles
+INSERT INTO USERROLE (user_id, role_id, assigned_by) VALUES 
+(1, 1, 1), -- John as Organiser
+(2, 1, 1), -- Alice as Organiser
+(3, 2, 1), -- Bob as Participant
+(4, 2, 1); -- Charlie as Participant
+
+-- Seed Events
+INSERT INTO EVENT (event_name, event_date, event_time, venue, location, distance_km, event_type, entry_fee, status, created_by) VALUES 
+('Johannesburg City Marathon', '2026-10-15', '06:00:00', 'FNB Stadium', 'Johannesburg', 42.20, 'Run', 250.00, 'Upcoming', 1),
+('Cape Town Cycle Tour', '2026-11-20', '07:30:00', 'Grand Parade', 'Cape Town', 109.00, 'Cycle', 500.00, 'Upcoming', 2),
+('Soweto Community Walk', '2026-12-05', '08:00:00', 'Morris Isaacson High', 'Soweto', 10.00, 'Walk', 50.00, 'Upcoming', 1);
+
+-- Seed Categories
+INSERT INTO CATEGORY (event_id, category_name, min_age, max_age, gender_restriction, max_participants, entry_fee, created_by) VALUES 
+(1, 'Open Male', 18, 99, 'Male', 5000, 250.00, 1),
+(1, 'Open Female', 18, 99, 'Female', 5000, 250.00, 1),
+(2, 'Elite Cyclist', 18, 60, 'None', 200, 500.00, 2),
+(3, 'Junior Walk', 5, 17, 'None', 1000, 25.00, 1);
+
+-- Seed Enrolments
+INSERT INTO ENROLMENT (user_id, event_id, category_id, enrolment_status, payment_status, amount_paid, created_by) VALUES 
+(3, 1, 1, 'Confirmed', 'Paid', 250.00, 3),
+(4, 1, 2, 'Pending', 'Unpaid', 0.00, 4);
+
+-- Seed Participant Events
+INSERT INTO PARTICIPANT_EVENT (event_id, user_id, category_id, bib_number, entry_status) VALUES 
+(1, 3, 1, 1001, 'Confirmed');
+
+-- Seed Results
+INSERT INTO RESULT (participant_event_id, finishing_position, finish_time_seconds, pace_per_km, overall_rank, category_rank, prize_money) VALUES 
+(1, 47, 10800, 255.92, 47, 12, 0.00);
+
