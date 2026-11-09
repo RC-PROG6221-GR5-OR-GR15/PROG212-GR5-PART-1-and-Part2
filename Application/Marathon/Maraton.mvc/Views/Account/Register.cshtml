@@ -1,0 +1,126 @@
+@model Maraton.mvc.Models.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Register - RaceDay";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-primary text-white text-center py-4">
+                    <h2 class="fw-bold mb-0"><i class="bi bi-person-plus-fill"></i> Join RaceDay</h2>
+                    <p class="mb-0 text-white-50">Create your athlete profile</p>
+                </div>
+                <div class="card-body p-5">
+                    <form asp-action="Register" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+                            <label asp-for="Email">Email address</label>
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Password" class="form-control" placeholder="Password" />
+                            <label asp-for="Password">Password</label>
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                            <label asp-for="ConfirmPassword">Confirm Password</label>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Select Your Role</label>
+                            <div class="d-flex gap-3">
+                                <div class="form-check flex-fill p-3 border rounded">
+                                    <input class="form-check-input" type="radio" asp-for="Role" value="Participant" id="roleParticipant" checked>
+                                    <label class="form-check-label" for="roleParticipant">
+                                        <i class="bi bi-person-walking"></i> Participant
+                                    </label>
+                                </div>
+                                <div class="form-check flex-fill p-3 border rounded">
+                                    <input class="form-check-input" type="radio" asp-for="Role" value="Organiser" id="roleOrganiser">
+                                    <label class="form-check-label" for="roleOrganiser">
+                                        <i class="bi bi-calendar-event"></i> Organiser
+                                    </label>
+                                </div>
+                            </div>
+                            <span asp-validation-for="Role" class="text-danger small"></span>
+                        </div>
+
+                        <div id="participantFields">
+                            <p class="text-muted small fst-italic mb-3">
+                                Participants need a profile so organisers can identify them.
+                            </p>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="FirstName" class="form-control" placeholder="First name" />
+                                        <label asp-for="FirstName"></label>
+                                        <span asp-validation-for="FirstName" class="text-danger small"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="LastName" class="form-control" placeholder="Last name" />
+                                        <label asp-for="LastName"></label>
+                                        <span asp-validation-for="LastName" class="text-danger small"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="DateOfBirth" type="date" class="form-control" placeholder="Date of birth" />
+                                        <label asp-for="DateOfBirth"></label>
+                                        <span asp-validation-for="DateOfBirth" class="text-danger small"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="PhoneNumber" class="form-control" placeholder="082 123 4567" />
+                                        <label asp-for="PhoneNumber"></label>
+                                        <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold mb-3 shadow-sm">
+                            CREATE ACCOUNT
+                        </button>
+
+                        <div class="text-center">
+                            <p class="mb-0 text-muted small">Already have an account? <a asp-action="Login" class="text-primary fw-bold text-decoration-none">Login here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        (function () {
+            var participantFields = document.getElementById('participantFields');
+            var radios = document.querySelectorAll('input[name="Role"]');
+
+            function toggle() {
+                var selected = document.querySelector('input[name="Role"]:checked');
+                var isParticipant = selected && selected.value === 'Participant';
+                participantFields.style.display = isParticipant ? '' : 'none';
+            }
+
+            radios.forEach(function (r) { r.addEventListener('change', toggle); });
+            toggle();
+        })();
+    </script>
+}
