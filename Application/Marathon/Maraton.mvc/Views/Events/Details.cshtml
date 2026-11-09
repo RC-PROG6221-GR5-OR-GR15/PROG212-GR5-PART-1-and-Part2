@@ -1,0 +1,104 @@
+@model Maraton.mvc.Models.ViewModels.EventViewModel
+@{
+    ViewData["Title"] = Model.EventName + " - RaceDay";
+}
+
+<div class="container mt-5">
+    <div class="row g-5">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-4">
+                <div class="bg-primary text-white p-5 text-center position-relative">
+                    <a asp-action="Index" class="btn btn-light btn-sm position-absolute top-0 start-0 m-4 rounded-circle">
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+                    <i class="bi @(Model.EventType == "Run" ? "bi-person-walking" : Model.EventType == "Cycle" ? "bi-bicycle" : "bi-universal-access") display-1 mb-3 opacity-75"></i>
+                    <h1 class="display-4 fw-bold mb-0">@Model.EventName</h1>
+                    <p class="lead opacity-75 mt-2">@Model.EventType • @Model.DistanceKm km</p>
+                </div>
+                <div class="card-body p-5">
+                    <h3 class="fw-bold mb-4 border-bottom pb-3">Event Description</h3>
+                    <p class="text-muted fs-5 lh-lg">
+                        Join us for the @Model.EventName! Whether you're a seasoned pro or a first-timer, this event is designed to challenge and inspire. Experience the beautiful route through @Model.Location and celebrate your achievement at @Model.Venue.
+                    </p>
+
+                    <div class="row mt-5 g-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center p-3 border rounded-3 bg-light">
+                                <i class="bi bi-calendar-check fs-2 text-primary me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block text-uppercase fw-bold">Date & Time</small>
+                                    <span class="fw-bold">@Model.EventDate.ToString("dddd, dd MMMM yyyy")</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center p-3 border rounded-3 bg-light">
+                                <i class="bi bi-geo-alt fs-2 text-primary me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block text-uppercase fw-bold">Location</small>
+                                    <span class="fw-bold">@Model.Venue, @Model.Location</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow rounded-4 sticky-top" style="top: 2rem;">
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <h6 class="text-muted text-uppercase fw-bold mb-1">Entry Fee</h6>
+                        <h2 class="display-5 fw-bold text-primary mb-0">R @Model.EventFee.ToString("F2")</h2>
+                    </div>
+                    
+                    <hr />
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold mb-3"><i class="bi bi-info-circle me-2"></i> Quick Info</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex justify-content-between">
+                                <span class="text-muted">Status:</span>
+                                <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3">@Model.Status</span>
+                            </li>
+                            <li class="mb-2 d-flex justify-content-between">
+                                <span class="text-muted">Distance:</span>
+                                <span class="fw-bold text-dark">@Model.DistanceKm km</span>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <span class="text-muted">Type:</span>
+                                <span class="fw-bold text-dark">@Model.EventType</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Participant"))
+                        {
+                            <a asp-controller="Participant" asp-action="Enrol" asp-route-id="@Model.EventId" class="btn btn-primary btn-lg w-100 fw-bold shadow-sm rounded-pill py-3">
+                                ENROL NOW
+                            </a>
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning border-0 small text-center mb-0 rounded-3">
+                                <i class="bi bi-exclamation-triangle me-1"></i> Organisers cannot enrol in events.
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg w-100 fw-bold shadow-sm rounded-pill py-3">
+                            LOGIN TO ENROL
+                        </a>
+                        <p class="text-center mt-3 mb-0 small text-muted">
+                            New here? <a asp-controller="Account" asp-action="Register" class="text-primary fw-bold text-decoration-none">Create an account</a>
+                        </p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
