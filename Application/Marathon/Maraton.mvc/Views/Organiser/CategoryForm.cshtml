@@ -1,0 +1,92 @@
+@model Maraton.mvc.Models.ViewModels.CategoryFormViewModel
+@{
+    ViewData["Title"] = Model.IsEdit ? "Edit Category" : "Create Category";
+    var action = Model.IsEdit ? "Edit" : "Create";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="d-flex align-items-center mb-3">
+                <a asp-action="Categories" asp-route-id="@Model.EventId" class="btn btn-light border rounded-circle me-3"><i class="bi bi-arrow-left"></i></a>
+                <div>
+                    <h1 class="fw-bold mb-0">@action Category</h1>
+                    <p class="text-muted mb-0">@Model.EventName</p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-md-5">
+                    <form asp-action="SaveCategory" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger border-0"></div>
+
+                        <input type="hidden" asp-for="CategoryId" />
+                        <input type="hidden" asp-for="EventId" />
+                        <input type="hidden" asp-for="EventName" />
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="CategoryName" class="form-control" placeholder="Senior Men" />
+                            <label asp-for="CategoryName"></label>
+                            <span asp-validation-for="CategoryName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input asp-for="MinAge" type="number" class="form-control" placeholder="18" />
+                                    <label asp-for="MinAge"></label>
+                                    <span asp-validation-for="MinAge" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input asp-for="MaxAge" type="number" class="form-control" placeholder="99" />
+                                    <label asp-for="MaxAge"></label>
+                                    <span asp-validation-for="MaxAge" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <select asp-for="GenderRestrictions" class="form-select">
+                                        <option value="Open">Open</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                    <label asp-for="GenderRestrictions"></label>
+                                    <span asp-validation-for="GenderRestrictions" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input asp-for="MaxParticipants" type="number" class="form-control" placeholder="100" />
+                                    <label asp-for="MaxParticipants"></label>
+                                    <span asp-validation-for="MaxParticipants" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="EntryFee" type="number" step="0.01" class="form-control" placeholder="150.00" />
+                            <label asp-for="EntryFee"></label>
+                            <span asp-validation-for="EntryFee" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2 mt-2">
+                            <a asp-action="Categories" asp-route-id="@Model.EventId" class="btn btn-light border fw-bold px-4">Cancel</a>
+                            <button type="submit" class="btn btn-primary fw-bold px-4 shadow-sm">
+                                <i class="bi bi-save"></i> @(Model.IsEdit ? "Save Changes" : "Create Category")
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

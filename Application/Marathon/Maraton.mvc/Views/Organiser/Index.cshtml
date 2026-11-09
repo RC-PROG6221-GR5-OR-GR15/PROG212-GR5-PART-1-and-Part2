@@ -1,0 +1,109 @@
+@model Maraton.mvc.Models.ViewModels.OrganiserDashboardViewModel
+@{
+    ViewData["Title"] = "Organiser Dashboard";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center mt-4 mb-3">
+    <div>
+        <h1 class="fw-bold mb-0"><i class="bi bi-speedometer2 text-primary"></i> Organiser Dashboard</h1>
+        <p class="text-muted mb-0">Signed in as @Model.DisplayName</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a asp-action="Events" class="btn btn-outline-primary fw-bold">
+            <i class="bi bi-list-ul"></i> All My Events
+        </a>
+        <a asp-action="CreateEvent" class="btn btn-primary fw-bold">
+            <i class="bi bi-plus-lg"></i> New Event
+        </a>
+    </div>
+</div>
+
+<hr />
+
+<div class="row g-4 mt-2">
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 border-start border-primary border-5">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold text-primary mb-0">@Model.ActiveEvents</h1>
+                <h5 class="fw-bold">Active Events</h5>
+                <p class="card-text text-muted small">Events you have created that are not yet completed.</p>
+                <a asp-action="Events" class="btn btn-primary w-100 fw-bold">MANAGE EVENTS</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 border-start border-success border-5">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold text-success mb-0">@Model.TotalEnrolments</h1>
+                <h5 class="fw-bold">Total Enrolments</h5>
+                <p class="card-text text-muted small">Participants registered across your events.</p>
+                <a asp-action="Events" class="btn btn-success w-100 fw-bold">VIEW ENROLMENTS</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 border-start border-warning border-5">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold text-warning mb-0">@Model.PendingEnrolments</h1>
+                <h5 class="fw-bold">Awaiting Approval</h5>
+                <p class="card-text text-muted small">Enrolments still to be confirmed.</p>
+                <a asp-action="Events" class="btn btn-warning w-100 fw-bold text-white">REVIEW NOW</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="fw-bold mt-5 mb-3"><i class="bi bi-calendar3"></i> Upcoming Events</h3>
+
+@if (Model.MyEvents.Count == 0)
+{
+    <div class="alert alert-info border-0 shadow-sm rounded-4 text-center py-5">
+        <i class="bi bi-calendar-plus display-4 d-block mb-3 text-primary"></i>
+        <h5 class="fw-bold">No events yet</h5>
+        <p class="text-muted mb-3">Create your first event to start accepting enrolments.</p>
+        <a asp-action="CreateEvent" class="btn btn-primary fw-bold px-4">CREATE AN EVENT</a>
+    </div>
+}
+else
+{
+    <div class="table-responsive shadow-sm rounded-4">
+        <table class="table table-hover align-middle mb-0 bg-white">
+            <thead class="table-primary">
+                <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th class="text-end">Fee</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.MyEvents)
+                {
+                    <tr>
+                        <td>
+                            <div class="fw-bold">@item.EventName</div>
+                            <small class="text-muted">@item.Venue, @item.Location</small>
+                        </td>
+                        <td>@item.EventDate.ToString("dd MMM yyyy")</td>
+                        <td><span class="badge bg-secondary rounded-pill">@item.EventType</span></td>
+                        <td class="text-end fw-bold text-primary">R @item.EventFee.ToString("F2")</td>
+                        <td>
+                            <span class="badge rounded-pill @(item.Status == "Completed" ? "bg-secondary" : "bg-success")">
+                                @item.Status
+                            </span>
+                        </td>
+                        <td class="text-end">
+                            <div class="btn-group btn-group-sm">
+                                <a asp-action="Categories" asp-route-id="@item.EventId" class="btn btn-outline-primary">Categories</a>
+                                <a asp-action="Enrolments" asp-route-id="@item.EventId" class="btn btn-outline-success">Enrolments</a>
+                                <a asp-action="EditEvent" asp-route-id="@item.EventId" class="btn btn-outline-secondary">Edit</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

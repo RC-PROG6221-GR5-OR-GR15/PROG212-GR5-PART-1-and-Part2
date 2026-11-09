@@ -1,0 +1,89 @@
+@model IEnumerable<Maraton.mvc.Models.ViewModels.EnrolmentViewModel>
+@{
+    ViewData["Title"] = "Enrolments";
+    var eventId = (Guid)ViewBag.EventId;
+    var eventName = (string)ViewBag.EventName;
+    var list = Model.ToList();
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center mt-4 mb-3">
+    <div class="d-flex align-items-center">
+        <a asp-action="Events" class="btn btn-light border rounded-circle me-3"><i class="bi bi-arrow-left"></i></a>
+        <div>
+            <h1 class="fw-bold mb-0"><i class="bi bi-people text-success"></i> Enrolments</h1>
+            <p class="text-muted mb-0">@eventName &bull; @list.Count registered</p>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+@if (list.Count == 0)
+{
+    <div class="alert alert-info border-0 shadow-sm rounded-4 text-center py-5">
+        <i class="bi bi-person-x display-4 d-block mb-3 text-success"></i>
+        <h5 class="fw-bold">No enrolments yet</h5>
+        <p class="text-muted mb-0">Participants who enrol in this event will appear here for approval.</p>
+    </div>
+}
+else
+{
+    <div class="table-responsive shadow-sm rounded-4">
+        <table class="table table-hover align-middle mb-0 bg-white">
+            <thead class="table-success">
+                <tr>
+                    <th>Category</th>
+                    <th>Enrolled On</th>
+                    <th class="text-end">Amount Paid</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in list)
+                {
+                    var confirmed = string.Equals(item.EnrolmentStatus, "Confirmed", StringComparison.OrdinalIgnoreCase);
+                    var rejected = string.Equals(item.EnrolmentStatus, "Rejected", StringComparison.OrdinalIgnoreCase);
+                    var statusClass = confirmed ? "bg-success" : rejected ? "bg-danger" : "bg-warning text-dark";
+                    <tr>
+                        <td class="fw-bold">@item.CategoryName</td>
+                        <td>@item.EnrolmentDate.ToString("dd MMM yyyy")</td>
+                        <td class="text-end fw-bold text-primary">R @item.AmountPaid.ToString("F2")</td>
+                        <td>
+                            <span class="badge rounded-pill @(item.PaymentStatus == "Paid" ? "bg-success" : "bg-warning text-dark")">
+                                @item.PaymentStatus
+                            </span>
+                        </td>
+                        <td><span class="badge rounded-pill @statusClass">@item.EnrolmentStatus</span></td>
+                        <td class="text-end">
+                            @if (!confirmed)
+                            {
+                                <form asp-action="SetEnrolmentStatus" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@item.EnrolmentId" />
+                                    <input type="hidden" name="eventId" value="@eventId" />
+                                    <input type="hidden" name="status" value="Confirmed" />
+                                    <button type="submit" class="btn btn-sm btn-success fw-bold">
+                                        <i class="bi bi-check-lg"></i> Confirm
+                                    </button>
+                                </form>
+                            }
+                            @if (!rejected)
+                            {
+                                <form asp-action="SetEnrolmentStatus" method="post" class="d-inline"
+                                      onsubmit="return confirm('Reject this enrolment?');">
+                                    <input type="hidden" name="id" value="@item.EnrolmentId" />
+                                    <input type="hidden" name="eventId" value="@eventId" />
+                                    <input type="hidden" name="status" value="Rejected" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger fw-bold">
+                                        <i class="bi bi-x-lg"></i> Reject
+                                    </button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

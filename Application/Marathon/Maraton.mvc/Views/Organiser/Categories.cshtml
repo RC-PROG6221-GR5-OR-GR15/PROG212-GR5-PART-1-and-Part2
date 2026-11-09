@@ -1,0 +1,69 @@
+@model IEnumerable<Maraton.mvc.Models.ViewModels.CategoryViewModel>
+@{
+    ViewData["Title"] = "Categories";
+    var eventId = (Guid)ViewBag.EventId;
+    var eventName = (string)ViewBag.EventName;
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center mt-4 mb-3">
+    <div class="d-flex align-items-center">
+        <a asp-action="Events" class="btn btn-light border rounded-circle me-3"><i class="bi bi-arrow-left"></i></a>
+        <div>
+            <h1 class="fw-bold mb-0"><i class="bi bi-diagram-3 text-primary"></i> Categories</h1>
+            <p class="text-muted mb-0">@eventName</p>
+        </div>
+    </div>
+    <a asp-action="CreateCategory" asp-route-eventId="@eventId" class="btn btn-primary fw-bold">
+        <i class="bi bi-plus-lg"></i> New Category
+    </a>
+</div>
+
+<hr />
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info border-0 shadow-sm rounded-4 text-center py-5">
+        <i class="bi bi-tags display-4 d-block mb-3 text-primary"></i>
+        <h5 class="fw-bold">No categories yet</h5>
+        <p class="text-muted mb-3">Add categories (e.g. Senior Men, Open Women) so participants can enrol.</p>
+        <a asp-action="CreateCategory" asp-route-eventId="@eventId" class="btn btn-primary fw-bold px-4">ADD A CATEGORY</a>
+    </div>
+}
+else
+{
+    <div class="table-responsive shadow-sm rounded-4">
+        <table class="table table-hover align-middle mb-0 bg-white">
+            <thead class="table-primary">
+                <tr>
+                    <th>Category</th>
+                    <th>Age Range</th>
+                    <th>Gender</th>
+                    <th class="text-center">Capacity</th>
+                    <th class="text-end">Entry Fee</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="fw-bold">@item.CategoryName</td>
+                        <td>@(item.MinAge ?? 0) – @(item.MaxAge ?? 99)</td>
+                        <td><span class="badge bg-secondary rounded-pill">@item.GenderRestrictions</span></td>
+                        <td class="text-center">@item.MaxParticipants</td>
+                        <td class="text-end fw-bold text-primary">R @item.EntryFee.ToString("F2")</td>
+                        <td class="text-end">
+                            <div class="btn-group btn-group-sm">
+                                <a asp-action="EditCategory" asp-route-id="@item.CategoryId" class="btn btn-outline-secondary">Edit</a>
+                                <form asp-action="DeleteCategory" asp-route-id="@item.CategoryId" asp-route-eventId="@eventId" method="post" class="d-inline"
+                                      onsubmit="return confirm('Delete category &quot;@item.CategoryName&quot;?');">
+                                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

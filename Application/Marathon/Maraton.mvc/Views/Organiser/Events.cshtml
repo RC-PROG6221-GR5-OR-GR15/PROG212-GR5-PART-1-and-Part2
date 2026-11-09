@@ -1,0 +1,73 @@
+@model IEnumerable<Maraton.mvc.Models.ViewModels.EventViewModel>
+@{
+    ViewData["Title"] = "My Events";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center mt-4 mb-3">
+    <div>
+        <h1 class="fw-bold mb-0"><i class="bi bi-list-ul text-primary"></i> My Events</h1>
+        <p class="text-muted mb-0">Create, edit and remove the events you organise.</p>
+    </div>
+    <a asp-action="CreateEvent" class="btn btn-primary fw-bold">
+        <i class="bi bi-plus-lg"></i> New Event
+    </a>
+</div>
+
+<hr />
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info border-0 shadow-sm rounded-4 text-center py-5">
+        <i class="bi bi-calendar-x display-4 d-block mb-3 text-primary"></i>
+        <h5 class="fw-bold">You have not created any events</h5>
+        <p class="text-muted mb-3">Your events will appear here once created.</p>
+        <a asp-action="CreateEvent" class="btn btn-primary fw-bold px-4">CREATE AN EVENT</a>
+    </div>
+}
+else
+{
+    <div class="row g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="fw-bold mb-0">@item.EventName</h5>
+                            <span class="badge rounded-pill @(item.Status == "Completed" ? "bg-secondary" : "bg-success")">@item.Status</span>
+                        </div>
+
+                        <p class="text-muted small mb-3">
+                            <i class="bi bi-geo-alt"></i> @item.Venue, @item.Location
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-3 mb-3 small">
+                            <span><i class="bi bi-calendar-event text-primary"></i> @item.EventDate.ToString("dd MMM yyyy")</span>
+                            <span><i class="bi bi-flag text-primary"></i> @item.DistanceKm km</span>
+                            <span><i class="bi bi-tag text-primary"></i> @item.EventType</span>
+                            <span class="fw-bold text-primary"><i class="bi bi-cash"></i> R @item.EventFee.ToString("F2")</span>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <a asp-action="Categories" asp-route-id="@item.EventId" class="btn btn-sm btn-outline-primary fw-bold">
+                                <i class="bi bi-diagram-3"></i> Categories
+                            </a>
+                            <a asp-action="Enrolments" asp-route-id="@item.EventId" class="btn btn-sm btn-outline-success fw-bold">
+                                <i class="bi bi-people"></i> Enrolments
+                            </a>
+                            <a asp-action="EditEvent" asp-route-id="@item.EventId" class="btn btn-sm btn-outline-secondary fw-bold">
+                                <i class="bi bi-pencil"></i> Edit
+                            </a>
+                            <form asp-action="DeleteEvent" asp-route-id="@item.EventId" method="post" class="d-inline"
+                                  onsubmit="return confirm('Delete &quot;@item.EventName&quot;? This cannot be undone.');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger fw-bold">
+                                    <i class="bi bi-trash"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

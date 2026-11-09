@@ -1,0 +1,116 @@
+@model Maraton.mvc.Models.ViewModels.EventFormViewModel
+@{
+    ViewData["Title"] = Model.IsEdit ? "Edit Event" : "Create Event";
+    var action = Model.IsEdit ? "Edit" : "Create";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="d-flex align-items-center mb-3">
+                <a asp-action="Events" class="btn btn-light border rounded-circle me-3"><i class="bi bi-arrow-left"></i></a>
+                <div>
+                    <h1 class="fw-bold mb-0">@action Event</h1>
+                    <p class="text-muted mb-0">Fill in the details for your race day.</p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-md-5">
+                    <form asp-action="SaveEvent" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger border-0"></div>
+
+                        <input type="hidden" asp-for="EventId" />
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="EventName" class="form-control" placeholder="Cape Town Marathon" />
+                            <label asp-for="EventName"></label>
+                            <span asp-validation-for="EventName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input asp-for="EventDate" type="date" class="form-control" placeholder="Event date" />
+                                    <label asp-for="EventDate"></label>
+                                    <span asp-validation-for="EventDate" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <select asp-for="EventType" class="form-select">
+                                        <option value="Run">Run</option>
+                                        <option value="Cycle">Cycle</option>
+                                        <option value="Walk">Walk</option>
+                                        <option value="Swim">Swim</option>
+                                        <option value="Triathlon">Triathlon</option>
+                                    </select>
+                                    <label asp-for="EventType"></label>
+                                    <span asp-validation-for="EventType" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input asp-for="Location" class="form-control" placeholder="Cape Town" />
+                                    <label asp-for="Location"></label>
+                                    <span asp-validation-for="Location" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input asp-for="Venue" class="form-control" placeholder="Green Point Stadium" />
+                                    <label asp-for="Venue"></label>
+                                    <span asp-validation-for="Venue" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input asp-for="DistanceKm" type="number" step="0.01" class="form-control" placeholder="42.2" />
+                                    <label asp-for="DistanceKm"></label>
+                                    <span asp-validation-for="DistanceKm" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input asp-for="EventFee" type="number" step="0.01" class="form-control" placeholder="250.00" />
+                                    <label asp-for="EventFee"></label>
+                                    <span asp-validation-for="EventFee" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <select asp-for="Status" class="form-select">
+                                        <option value="Upcoming">Upcoming</option>
+                                        <option value="Open">Open</option>
+                                        <option value="Closed">Closed</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Cancelled">Cancelled</option>
+                                    </select>
+                                    <label asp-for="Status"></label>
+                                    <span asp-validation-for="Status" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2 mt-2">
+                            <a asp-action="Events" class="btn btn-light border fw-bold px-4">Cancel</a>
+                            <button type="submit" class="btn btn-primary fw-bold px-4 shadow-sm">
+                                <i class="bi bi-save"></i> @(Model.IsEdit ? "Save Changes" : "Create Event")
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
