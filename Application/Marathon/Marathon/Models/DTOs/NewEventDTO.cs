@@ -1,19 +1,20 @@
 ﻿namespace Marathon.Models.DTOs
 {
+    /// <summary>
+    /// Payload for creating an event. Only client-supplied fields are listed;
+    /// CreatedBy, CreatedAt, UpdatedAt, Now and Status are set server-side.
+    /// </summary>
     public class NewEventDTO
     {
-
         public required string EventName { get; set; }
         public required DateOnly EventDate { get; set; }
-        public required DateTime Now { get; set; }
         public required string Location { get; set; }
         public required string Venue { get; set; }
-        public required float DistanceKm { get; set; }
+        public required decimal DistanceKm { get; set; }
         public required string EventType { get; set; }
-        public required float EventFee { get; set; }
-        public required string Status { get; set; }
-        public required int CreatedBy { get; set; }
-        public required DateTime CreatedAt { get; set; }
-        public required DateTime UpdatedAt { get; set; }
+        public required decimal EventFee { get; set; }
+
+        /// <summary>Optional URL of a banner image previously uploaded to Blob Storage.</summary>
+        public string? BannerImageUrl { get; set; }
     }
 }

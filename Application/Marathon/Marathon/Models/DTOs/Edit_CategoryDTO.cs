@@ -7,5 +7,6 @@
         public int? MaxAge { get; set; }
         public string? GenderRestrictions { get; set; }
         public int? MaxParticipants { get; set; }
+        public decimal? EntryFee { get; set; }
     }
 }

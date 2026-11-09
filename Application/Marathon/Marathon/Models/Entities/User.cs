@@ -16,5 +16,8 @@ namespace Marathon.Models
         public required DateTime LastLogin { get; set; }
         public required bool IsActive { get; set; }
 
+        /// <summary>Public URL of the profile picture stored in Azure Blob Storage.</summary>
+        public string? ProfileImageUrl { get; set; }
+
     }
 }

@@ -14,6 +14,7 @@ namespace Marathon.Models
         public required int MaxAge { get; set; }
         public required string GenderRestrictions { get; set; }
         public required int MaxParticipants { get; set; }
+        public decimal EntryFee { get; set; }
         public required string CreatedBy { get; set; }
         public required DateTime CreatedAt { get; set; }
     }

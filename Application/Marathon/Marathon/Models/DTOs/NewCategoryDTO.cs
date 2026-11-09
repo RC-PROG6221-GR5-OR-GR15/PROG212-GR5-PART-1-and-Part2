@@ -1,5 +1,8 @@
 ﻿namespace Marathon.Models.DTOs
 {
+    /// <summary>
+    /// Payload for creating a category. CreatedBy and CreatedAt are set server-side.
+    /// </summary>
     public class NewCategoryDTO
     {
         public required Guid EventId { get; set; }
@@ -8,7 +11,6 @@
         public required int MaxAge { get; set; }
         public required string GenderRestrictions { get; set; }
         public required int MaxParticipants { get; set; }
-        public required string CreatedBy { get; set; }
-        public required DateTime CreatedAt { get; set; }
+        public required decimal EntryFee { get; set; }
     }
 }
