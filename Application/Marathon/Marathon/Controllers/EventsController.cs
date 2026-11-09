@@ -36,10 +36,16 @@ namespace Marathon.Controllers
         }
 
         
+        [Authorize(Roles = "Organiser, Admin")]
         [HttpPost]
         public IActionResult CreateEvent(NewEventDTO newEventDTO)
         {
-            
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+            {
+                return Unauthorized("User ID not found in token.");
+            }
+
             var newEvent = new Event
             {
                 EventName = newEventDTO.EventName,
@@ -49,11 +55,11 @@ namespace Marathon.Controllers
                 DistanceKm = newEventDTO.DistanceKm,
                 EventFee = newEventDTO.EventFee,
                 EventType = newEventDTO.EventType,
-                Status = "Scheduled",
-
+                Status = "Upcoming",
+                BannerImageUrl = newEventDTO.BannerImageUrl,
 
                 // server-controlled
-                CreatedBy = 1235, // This should be replaced with the actual Employee ID from the authenticated user "aAdmin"
+                CreatedBy = userId,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
                 Now = DateTime.UtcNow
@@ -68,6 +74,7 @@ namespace Marathon.Controllers
                 newEvent
             );
         }
+        [Authorize(Roles = "Organiser, Admin")]
         [HttpPut]
         [Route("{id:guid}")]
         public IActionResult UpdateEvent(Guid id, UpdateEventDTO updatedEventDTO)
@@ -81,10 +88,15 @@ namespace Marathon.Controllers
             existingEvent.DistanceKm = updatedEventDTO.DistanceKm;
             existingEvent.EventFee = updatedEventDTO.EventFee;
             existingEvent.EventType = updatedEventDTO.EventType;
+            if (!string.IsNullOrWhiteSpace(updatedEventDTO.Status))
+                existingEvent.Status = updatedEventDTO.Status;
+            if (!string.IsNullOrWhiteSpace(updatedEventDTO.BannerImageUrl))
+                existingEvent.BannerImageUrl = updatedEventDTO.BannerImageUrl;
             existingEvent.UpdatedAt = DateTime.UtcNow;
             dbcontext.SaveChanges();
             return Ok("Event was updated successfully.");
         }
+        [Authorize(Roles = "Organiser, Admin")]
         [HttpDelete]
         [Route("{id:guid}")]
         public IActionResult RemoveEvent(Guid id)
