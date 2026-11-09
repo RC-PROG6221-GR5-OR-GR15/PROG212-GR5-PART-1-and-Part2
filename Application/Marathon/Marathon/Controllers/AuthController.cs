@@ -36,17 +36,48 @@ namespace Marathon.Controllers
             if (await _db.accounts.AnyAsync(u => u.Email == regDto.Email))
                 return BadRequest("Email already exists");
 
+            // Validate Role
+            var allowedRoles = new[] { "Participant", "Organiser" };
+            var role = allowedRoles.Contains(regDto.Role) ? regDto.Role : "Participant";
+
+            // Participants need a User profile record, which is what enrolments link to.
+            var isParticipant = role == "Participant";
+            if (isParticipant &&
+                (string.IsNullOrWhiteSpace(regDto.FirstName) ||
+                 string.IsNullOrWhiteSpace(regDto.LastName) ||
+                 regDto.DateOfBirth is null ||
+                 string.IsNullOrWhiteSpace(regDto.PhoneNumber)))
+            {
+                return BadRequest(
+                    "First name, last name, date of birth and phone number are required for participants.");
+            }
+
             var regUser = new UserAccount
             {
                 Email = regDto.Email,
-                PasswordHash = null, // will be set below
-                Role = "User"   // ignore regDto.Role — prevent self-promotion 
-                //Roles — Paticipant, Event Manager or Admin
+                PasswordHash = "", // will be set below
+                Role = role
             };
 
             regUser.PasswordHash = _hasher.HashPassword(regUser, regDto.Password);
 
             _db.accounts.Add(regUser);
+
+            if (isParticipant)
+            {
+                _db.users.Add(new User
+                {
+                    Username = regDto.Email,
+                    FirstName = regDto.FirstName!,
+                    LastName = regDto.LastName!,
+                    DateOfBirth = regDto.DateOfBirth!.Value,
+                    PhoneNumber = regDto.PhoneNumber!,
+                    CreatedAt = DateTime.UtcNow,
+                    LastLogin = DateTime.UtcNow,
+                    IsActive = true
+                });
+            }
+
             await _db.SaveChangesAsync();
 
             return Ok(new
