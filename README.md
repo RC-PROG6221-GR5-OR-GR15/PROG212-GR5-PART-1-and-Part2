@@ -1,267 +1,261 @@
-# PROG212-GR5-PART-1
-# Marathon Event Management System
+# Marathon RaceDay — Event Management System
 
-A simple system for managing marathon events, participants, categories, enrolments, and race results.
+[![CI](https://github.com/RC-PROG6221-GR5-OR-GR15/PROG212-GR5-PART-1-and-Part2/actions/workflows/ci.yml/badge.svg)](https://github.com/RC-PROG6221-GR5-OR-GR15/PROG212-GR5-PART-1-and-Part2/actions/workflows/ci.yml)
 
-##  Overview
-
-The **Marathon Event Management System** helps administrators organise and manage marathon events. Users can register, enrol in events, join categories, and view their results after an event.
-
-The system supports three main activities:
-
-* Managing users and their roles
-* Creating and managing marathon events
-* Registering participants and recording race results
-  **# Features**
-
-###  User Management
-
-* Register and manage users
-* User login and authentication
-* Assign roles to users
-* Activate or deactivate users
-
-###  Event Management
-
-* Create marathon events
-* Set event date, time, venue, and location
-* Define marathon distance
-* Set entry fees
-* Manage event status
-  ###  Enrolment Management
-
-* Allow users to enrol in events
-* Select an event category
-* Track enrolment status
-* Track payment status and amounts
-
-### Participant Management
-
-* Add participants to events
-* Assign bib numbers
-* Track participant entry status
-
-### Results Management
-
-* Record finishing positions
-* Record finish times
-* Calculate participant rankings
-* Track category rankings
-* Record prize money
-##  Database Relationships
-
-The main relationships in the system are:
-
-```text
-USER <<-->>USERROLE <<->>> ROLE
- 
- EVENT <<->>CATEGORY
-                    
-ENROLMENT <<->> PARTICIPANT_EVENT
-          RESULT
-```
-
-### Example Flow
-```text
-User registers
-      ↓
-User logs in
-      ↓
-User views available events
-      ↓
-User selects an event and category
-      ↓
-User enrols and makes payment
-      ↓
-User becomes a confirmed participant
-      ↓
-Participant receives a bib number
-      ↓
-Event takes place
-      ↓
-Administrator records results
-      ↓
-User views their results
-```
+A full-stack system for managing marathon and endurance events, their categories,
+participant enrolments and race results. Part 3 adds a **role-aware ASP.NET Core MVC
+web application** that consumes the Part 2 REST API, plus cloud file storage,
+Docker containerisation and a continuous-integration pipeline.
 
 ---
-Here ERD Image
+
+## Solution Structure
+
+| Project | Description |
+| --- | --- |
+| `Application/Marathon/Marathon` | **RESTful Web API** (Part 2). JWT-secured, EF Core code-first, Azure Blob Storage. |
+| `Application/Marathon/Maraton.mvc` | **MVC web application** (Part 3). Consumes the API over HTTP; never touches the database directly. |
+| `Application/Marathon/TestMarathon` | xUnit unit-test project covering authentication, role enforcement and CRUD failure paths. |
+
+The MVC application is a pure consumer of the API. All data access is performed by
+the API through Entity Framework Core; the MVC layer holds only a JWT and forwards it
+on every request.
+
+---
+
+## Architecture
+
+```text
+Browser  →  Maraton.mvc (cookie auth + session)  →  HttpClient (JWT bearer)  →  Marathon API  →  SQL Server
+                                                                                     │
+                                                                                     └→ Azure Blob Storage (banners / avatars)
+```
+
+* **Authentication** — the API issues a JWT on login. The MVC application stores it in
+  the server-side session and signs the user in with a cookie, attaching the JWT as a
+  `Bearer` token on every API call via a typed `RaceDayApiClient`.
+* **Role-based UI** — navigation, dashboards and action buttons are rendered from the
+  signed-in user's role (`Organiser`, `Participant`, `Admin`).
+* **Failure handling** — the typed client converts API error responses into friendly
+  validation messages (including `ProblemDetails`), so the user never sees a raw stack trace.
+
+---
+
+## Features
+
+### Participant
+* Browse and filter events, and view full event details.
+* Enrol in a category with a payment amount (partial payments are flagged as *Pending*).
+* Personal dashboard showing total, confirmed and pending enrolments.
+* Upload a profile picture (stored in Azure Blob Storage).
+
+### Organiser
+* Dashboard summarising active events, total enrolments and enrolments awaiting approval.
+* Full event CRUD, including status management.
+* Category CRUD with age ranges, gender restrictions, capacity and entry fees.
+* Review the enrolment register for an event and confirm or reject each enrolment.
+* Upload event banners (stored in Azure Blob Storage).
+
+### Administrative / cross-cutting
+* Role enforcement on every write endpoint (`Organiser, Admin` for management, `Participant` for enrolment).
+* Capacity checks, duplicate-enrolment prevention and clear `400` / `404` / `409` responses.
+* Realistic seed data for every entity, applied automatically on first run.
+
+---
+
+## Technology Stack
+
+| Layer | Technology |
+| --- | --- |
+| API | ASP.NET Core 8 Web API, JWT bearer authentication |
+| Web app | ASP.NET Core 8 MVC, Bootstrap 5, bootstrap-icons |
+| Data | Entity Framework Core 8 (code-first), SQL Server |
+| Cloud storage | Azure Blob Storage (`Azure.Storage.Blobs`) |
+| Testing | xUnit, EF Core In-Memory provider |
+| Containerisation | Docker, Docker Compose, Azurite (storage emulator) |
+| CI | GitHub Actions |
+
+---
+
+## Database Model
+
+```text
+USER (UserId) ──< ENROLMENT >── EVENT (EventId)
+                        │
+                        └──< CATEGORY >── EVENT
+USER (UserId) ──< USERROLE >── ROLE
+USER (UserId) ──< PARTICIPANT_EVENT >── EVENT (bibs, finish times)
+PARTICIPANT_EVENT ──< RESULT (positions, pace, prize money)
+USERACCOUNT (UserAccountId)  — authentication identity, linked to USER by e-mail
+```
+
+Key cardinalities: one **Event** has many **Categories** (1:M); one **Category** has many
+**Enrolments** (1:M); **User** and **Event** relate many-to-many through **Enrolment**;
+one **Participant_Event** produces one **Result**.
+
+---
 
 ## API Endpoints
 
-The system provides REST API endpoints for managing the different parts of the application.
-
 ### Authentication
-
 ```text
-POST   /api/auth/register
-POST   /api/auth/login
-POST   /api/auth/logout
-GET    /api/auth/profile
-PUT    /api/auth/profile
-```
-
-### Users
-
-```text
-GET    /api/users
-GET    /api/users/{id}
-POST   /api/users
-PUT    /api/users/{id}
-DELETE /api/users/{id}
+POST   /api/Auth/register            Create an account (participants supply profile details)
+POST   /api/Auth/login               Obtain a JWT
+GET    /api/Auth/me                  Current account (requires token)
 ```
 
 ### Events
-
 ```text
-GET    /api/events
-GET    /api/events/{id}
-POST   /api/events
-PUT    /api/events/{id}
-DELETE /api/events/{id}
+GET    /api/Events                   List all events                     (anonymous)
+GET    /api/Events/{id}              Event details                       (anonymous)
+POST   /api/Events                   Create event                        (Organiser, Admin)
+PUT    /api/Events/{id}              Update event                        (Organiser, Admin)
+DELETE /api/Events/{id}              Delete event                        (Organiser, Admin)
 ```
 
 ### Categories
-
 ```text
-GET    /api/categories
-GET    /api/categories/{id}
-POST   /api/categories
-PUT    /api/categories/{id}
-DELETE /api/categories/{id}
+GET    /api/Category                 List categories                     (anonymous)
+GET    /api/Category/{id}            Category details                    (anonymous)
+POST   /api/Category                 Create category                     (Organiser, Admin)
+PUT    /api/Category/{id}            Update category                     (Organiser, Admin)
+DELETE /api/Category/{id}            Delete category                     (Organiser, Admin)
 ```
 
 ### Enrolments
-
 ```text
-GET    /api/enrolments
-GET    /api/enrolments/{id}
-POST   /api/enrolments
-PUT    /api/enrolments/{id}
-DELETE /api/enrolments/{id}
+POST   /api/Enrolment                Enrol in a category                 (Participant)
+GET    /api/Enrolment/me             My enrolments                       (authenticated)
+GET    /api/Enrolment                Full enrolment register             (Organiser, Admin)
+GET    /api/Enrolment/{id}           Single enrolment                    (owner or staff)
+GET    /api/Enrolment/user/{userId}  Enrolments for a user               (owner or staff)
+PATCH  /api/Enrolment/{id}           Confirm / reject an enrolment       (Organiser, Admin)
 ```
 
-### Results
-
+### Uploads (Azure Blob Storage)
 ```text
-GET    /api/results
-GET    /api/results/{id}
-POST   /api/results
-PUT    /api/results/{id}
-DELETE /api/results/{id}
+POST   /api/Upload/event-banner      Upload an event banner              (Organiser, Admin)
+POST   /api/Upload/profile-picture   Upload a profile picture            (authenticated)
 ```
+
+Swagger UI is available at `https://localhost:7233/swagger` while the API runs in Development.
 
 ---
 
-## Tools
+## Getting Started (local development)
 
-The system will be developed using:
-**In future For now its SSMS for database**
-* **Backend:** ASP.NET Core Web API
-* **Programming Language:** C#
-* **Database:** MySQL
-* **Database Tool:** MySQL Workbench
-* **API Testing:** Postman
-* **Frontend:** Web, Mobile, or Desktop Application
+### Prerequisites
+* .NET 8 SDK
+* SQL Server (Express is sufficient) or SQL Server in Docker
+* Visual Studio 2022 (or the `dotnet` CLI)
+
+### 1. Clone
+```bash
+git clone https://github.com/RC-PROG6221-GR5-OR-GR15/PROG212-GR5-PART-1-and-Part2.git
+cd PROG212-GR5-PART-1-and-Part2
+```
+
+### 2. Configure the API
+Edit `Application/Marathon/Marathon/appsettings.json` and point
+`ConnectionStrings:DefaultConnection` at your SQL Server instance. The database is
+created and seeded automatically the first time the API starts.
+
+### 3. Run the API
+```bash
+cd Application/Marathon/Marathon
+dotnet run
+```
+The API listens on `https://localhost:7233`.
+
+### 4. Run the MVC application
+```bash
+cd Application/Marathon/Maraton.mvc
+dotnet run
+```
+The web application listens on `https://localhost:7120` and reads the API base URL from
+`ApiSettings:BaseUrl` in its `appsettings.json`.
+
+### 5. Sign in
+Seed data creates these demonstration accounts (password `Passw0rd!` for all):
+
+| Role | E-mail |
+| --- | --- |
+| Organiser | `organiser@raceday.com` |
+| Organiser | `events@capetownmarathon.co.za` |
+| Participant | `participant@raceday.com` |
+| Participant | `thabo.mokoena@raceday.com` |
+| Participant | `lindiwe.dlamini@raceday.com` |
+
 ---
-##  Getting Started
 
-### 1. Clone the project
+## Running with Docker
+
+A single command starts the whole stack — SQL Server, Azurite (storage emulator), the
+API and the MVC application:
 
 ```bash
-git clone 
+cd Application/Marathon
+docker compose up --build
 ```
 
-### 2. Create the database
+| Service | URL |
+| --- | --- |
+| MVC web application | http://localhost:8081 |
+| API + Swagger | http://localhost:8080/swagger |
 
-Create a MySQL database called:
-
-```sql
-CREATE DATABASE EventManagementDB;
-```
-
-### 3. Select the database
-
-```sql
-USE EventManagementDB;
-```
-
-### 4. Run the SQL scripts
-
-Run the SQL commands provided in the project to create the following tables:
-
-* USER
-* ROLE
-* USERROLE
-* EVENT
-* CATEGORY
-* ENROLMENT
-* PARTICIPANT_EVENT
-* RESULT
-
-### 5. Configure the database connection
-
-Add your MySQL connection string to your application's configuration file.
-
-Example:
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=EventManagementDB;User=root;Password=your_password;"
-  }
-}
-```
-
-> Replace `your_password` with your actual MySQL password.
-
-### 6. Run the application
-
+The API applies its migrations and seeds the database automatically once SQL Server is
+healthy.
 
 ---
 
-##  User Roles
+## Running the Tests
 
-The system may include the following roles:
-
-| Role            | Responsibilities                                             |
-| --------------- | ------------------------------------------------------------ |
-| Administrator   | Manages users, events, categories, participants, and results |
-| Event Organizer | Creates and manages events                                   |
-| Participant     | Enrols in events and views results                           |
-
----
-
-##  Example Event
-
-```text
-Event Name: Johannesburg City Marathon
-Date: 15 October 2026
-Distance: 42.2 km
-Location: Johannesburg
-Entry Fee: R250.00
-Status: Upcoming
+```bash
+cd Application/Marathon
+dotnet test Marathon.sln
 ```
 
----
-
-##  Future Improvements
-
-Possible future features include:
-
-* Online payment integration
-* Email notifications
-* SMS notifications
-* QR code participant check-in
-* Live participant tracking
-* Digital certificates
-* Event leaderboards
-* Mobile application support
+The suite (`TestMarathon`) covers account registration and login, duplicate and
+incomplete-registration failures, JWT issuance, event/category CRUD failure paths,
+enrolment rules (capacity, duplicates, negative payments) and role-based access on
+every protected endpoint — **39 tests**.
 
 ---
 
-##  Conclusion
-The **Marathon Event Management System** provides a simple way to manage marathon events from registration to final results. The system helps reduce manual work and keeps event, participant, payment, and result information organised in one central database.
+## Continuous Integration
 
-YOUTUBE VIDEO
-https://youtu.be/ycXFP0hjffo?si=3sKzrlvjItZ1_rEx
+`.github/workflows/ci.yml` runs on every push and pull request to `main`. It restores,
+builds and tests the solution on .NET 8, uploads the test results as an artifact, and
+builds both Docker images. The status badge is shown at the top of this document.
+
+---
+
+## User Roles
+
+| Role | Responsibilities |
+| --- | --- |
+| Administrator | Full access to events, categories, enrolments and accounts |
+| Organiser | Creates and manages events, categories and enrolments |
+| Participant | Browses events, enrols in categories and tracks results |
+
+---
+
+## Demo Video
+
+Part 3 walkthrough: <https://youtu.be/ycXFP0hjffo>
+
+---
+
+## References
+
+Microsoft (2024) *ASP.NET Core documentation*. Available at: https://learn.microsoft.com/aspnet/core (Accessed: 2026).
+
+Microsoft (2024) *Entity Framework Core documentation*. Available at: https://learn.microsoft.com/ef/core (Accessed: 2026).
+
+Microsoft (2024) *Azure Blob Storage client library for .NET*. Available at: https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet (Accessed: 2026).
+
+Docker Inc. (2024) *Docker Compose overview*. Available at: https://docs.docker.com/compose/ (Accessed: 2026).
+
+GitHub (2024) *GitHub Actions documentation*. Available at: https://docs.github.com/actions (Accessed: 2026).
+
+Bootstrap (2024) *Bootstrap 5 documentation*. Available at: https://getbootstrap.com/docs/5.3/ (Accessed: 2026).
