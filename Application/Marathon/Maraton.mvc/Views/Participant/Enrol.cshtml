@@ -1,0 +1,78 @@
+@model IEnumerable<Maraton.mvc.Models.ViewModels.CategoryViewModel>
+@{
+    ViewData["Title"] = "Enrol";
+    var ev = (Maraton.mvc.Models.ViewModels.EventViewModel)ViewBag.Event;
+    var takenCount = (int)ViewBag.TakenCount;
+}
+
+<div class="container mt-4">
+    <div class="d-flex align-items-center mb-3">
+        <a asp-controller="Events" asp-action="Details" asp-route-id="@ev.EventId" class="btn btn-light border rounded-circle me-3">
+            <i class="bi bi-arrow-left"></i>
+        </a>
+        <div>
+            <h1 class="fw-bold mb-0">Enrol in @ev.EventName</h1>
+            <p class="text-muted mb-0">
+                <i class="bi bi-geo-alt"></i> @ev.Venue, @ev.Location &bull;
+                <i class="bi bi-calendar-event"></i> @ev.EventDate.ToString("dd MMM yyyy")
+            </p>
+        </div>
+    </div>
+
+    <hr />
+
+    @if (takenCount > 0)
+    {
+        <div class="alert alert-info border-0 shadow-sm rounded-4">
+            <i class="bi bi-info-circle me-2"></i> You are already enrolled in @takenCount categor@(takenCount == 1 ? "y" : "ies") for this event.
+        </div>
+    }
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning border-0 shadow-sm rounded-4 text-center py-5">
+            <i class="bi bi-exclamation-triangle display-4 d-block mb-3 text-warning"></i>
+            <h5 class="fw-bold">No categories available</h5>
+            <p class="text-muted mb-0">There are no open categories for you to enrol in right now.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var category in Model)
+            {
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 h-100">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="fw-bold mb-0">@category.CategoryName</h5>
+                                <span class="badge bg-primary rounded-pill">R @category.EntryFee.ToString("F2")</span>
+                            </div>
+
+                            <ul class="list-unstyled text-muted small mb-3">
+                                <li><i class="bi bi-people me-2"></i> @category.GenderRestrictions</li>
+                                <li><i class="bi bi-person-badge me-2"></i> Ages @(category.MinAge ?? 0) – @(category.MaxAge ?? 99)</li>
+                                <li><i class="bi bi-door-open me-2"></i> Capacity: @category.MaxParticipants</li>
+                            </ul>
+
+                            <form asp-action="Enrol" method="post" class="mt-auto">
+                                <input type="hidden" name="eventId" value="@ev.EventId" />
+                                <input type="hidden" name="categoryId" value="@category.CategoryId" />
+
+                                <div class="input-group">
+                                    <span class="input-group-text">R</span>
+                                    <input type="number" name="amountPaid" step="0.01" min="0"
+                                           value="@category.EntryFee.ToString("F2")" class="form-control" />
+                                    <button type="submit" class="btn btn-primary fw-bold">
+                                        <i class="bi bi-check-lg"></i> Enrol
+                                    </button>
+                                </div>
+                                <small class="text-muted">Amount paid now (R @category.EntryFee.ToString("F2") required).</small>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

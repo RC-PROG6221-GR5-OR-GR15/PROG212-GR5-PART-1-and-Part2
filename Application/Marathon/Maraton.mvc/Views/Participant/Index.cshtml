@@ -1,0 +1,89 @@
+@model Maraton.mvc.Models.ViewModels.ParticipantDashboardViewModel
+@{
+    ViewData["Title"] = "My Events";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center mt-4 mb-3">
+    <div>
+        <h1 class="fw-bold mb-0"><i class="bi bi-person-walking text-primary"></i> My Athlete Profile</h1>
+        <p class="text-muted mb-0">Signed in as @Model.DisplayName</p>
+    </div>
+    <a asp-controller="Events" asp-action="Index" class="btn btn-primary fw-bold">
+        <i class="bi bi-search"></i> Browse Events
+    </a>
+</div>
+
+<hr />
+
+<div class="row g-4 mt-2">
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 border-start border-primary border-5">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold text-primary mb-0">@Model.TotalEnrolments</h1>
+                <h5 class="fw-bold">Total Enrolments</h5>
+                <p class="card-text text-muted small">Races you have signed up for.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 border-start border-success border-5">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold text-success mb-0">@Model.ConfirmedEnrolments</h1>
+                <h5 class="fw-bold">Confirmed</h5>
+                <p class="card-text text-muted small">Enrolments approved by the organiser.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 border-start border-warning border-5">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold text-warning mb-0">@Model.PendingEnrolments</h1>
+                <h5 class="fw-bold">Pending</h5>
+                <p class="card-text text-muted small">Still awaiting confirmation.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="fw-bold mt-5 mb-3"><i class="bi bi-calendar-check"></i> My Enrolments</h3>
+
+@if (Model.MyEnrolments.Count == 0)
+{
+    <div class="alert alert-info border-0 shadow-sm rounded-4 text-center py-5">
+        <i class="bi bi-emoji-smile display-4 d-block mb-3 text-primary"></i>
+        <h5 class="fw-bold">You haven't enrolled in any events yet</h5>
+        <p class="text-muted mb-3">Find your next race and sign up today.</p>
+        <a asp-controller="Events" asp-action="Index" class="btn btn-primary fw-bold px-4">BROWSE UPCOMING EVENTS</a>
+    </div>
+}
+else
+{
+    <div class="table-responsive shadow-sm rounded-4">
+        <table class="table table-hover align-middle mb-0 bg-white">
+            <thead class="table-primary">
+                <tr>
+                    <th>Event</th>
+                    <th>Category</th>
+                    <th>Enrolled On</th>
+                    <th class="text-end">Amount Paid</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.MyEnrolments)
+                {
+                    var confirmed = string.Equals(item.EnrolmentStatus, "Confirmed", StringComparison.OrdinalIgnoreCase);
+                    var rejected = string.Equals(item.EnrolmentStatus, "Rejected", StringComparison.OrdinalIgnoreCase);
+                    var statusClass = confirmed ? "bg-success" : rejected ? "bg-danger" : "bg-warning text-dark";
+                    <tr>
+                        <td class="fw-bold">@item.EventName</td>
+                        <td>@item.CategoryName</td>
+                        <td>@item.EnrolmentDate.ToString("dd MMM yyyy")</td>
+                        <td class="text-end fw-bold text-primary">R @item.AmountPaid.ToString("F2")</td>
+                        <td><span class="badge rounded-pill @statusClass">@item.EnrolmentStatus</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
