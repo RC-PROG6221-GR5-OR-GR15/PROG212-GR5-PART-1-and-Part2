@@ -2,7 +2,52 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid bg-primary text-white py-5 mb-5 rounded-4" style="border-radius:0 0 2rem 2rem;">
+    <div class="container text-center">
+        <h1 class="display-3 fw-bold mb-3">RaceDay</h1>
+        <p class="lead fs-4 mb-4">Find your next challenge. Push your limits. Cross the finish line.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a class="btn btn-light btn-lg text-primary fw-semibold" asp-controller="Events" asp-action="Index">Explore Events</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="btn btn-outline-light btn-lg fw-semibold" asp-controller="Participant" asp-action="Index">My Dashboard</a>
+            }
+            else
+            {
+                <a class="btn btn-outline-light btn-lg fw-semibold" asp-controller="Account" asp-action="Login">Sign In</a>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row g-4 text-center">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                <div class="text-primary display-6 mb-3"><i class="bi bi-geo-alt"></i></div>
+                <h5 class="card-title fw-bold">Curated Events</h5>
+                <p class="card-text text-muted">Browse marathons, cycle tours and walks across South Africa.</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                <div class="text-primary display-6 mb-3"><i class="bi bi-person-check"></i></div>
+                <h5 class="card-title fw-bold">Easy Enrolment</h5>
+                <p class="card-text text-muted">Sign up in seconds, track your status and manage payments.</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                <div class="text-primary display-6 mb-3"><i class="bi bi-trophy"></i></div>
+                <h5 class="card-title fw-bold">Results &amp; Progress</h5>
+                <p class="card-text text-muted">Follow your results and celebrate every personal best.</p>
+            </div>
+            </div>
+        </div>
+    </div>
 </div>
