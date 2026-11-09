@@ -1,0 +1,73 @@
+name: raceday
+
+# Full RaceDay stack: the REST API, the MVC front end, SQL Server and the
+# Azurite Azure Storage emulator (used for event banners / profile pictures).
+#
+#   docker compose up --build
+#
+# MVC  ->  http://localhost:8081
+# API  ->  http://localhost:8080/swagger
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: raceday-sql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
+      MSSQL_SA_PASSWORD: "RaceDay!Passw0rd"
+    ports:
+      - "1433:1433"
+    volumes:
+      - raceday-sql-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -C -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    container_name: raceday-storage
+    command: "azurite-blob --blobHost 0.0.0.0 --blobPort 10000"
+    ports:
+      - "10000:10000"
+
+  api:
+    build:
+      context: .
+      dockerfile: Marathon/Dockerfile
+    container_name: raceday-api
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      azurite:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
+      ASPNETCORE_URLS: "http://+:8080"
+      DisableHttpsRedirection: "true"
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=MarathonDb;User Id=sa;Password=RaceDay!Passw0rd;TrustServerCertificate=True;"
+      AzureStorage__ConnectionString: "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://azurite:10000/devstoreaccount1;"
+      AzureStorage__ContainerName: "raceday-media"
+    ports:
+      - "8080:8080"
+
+  mvc:
+    build:
+      context: .
+      dockerfile: Maraton.mvc/Dockerfile
+    container_name: raceday-mvc
+    depends_on:
+      - api
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
+      ASPNETCORE_URLS: "http://+:8080"
+      DisableHttpsRedirection: "true"
+      ApiSettings__BaseUrl: "http://api:8080/"
+    ports:
+      - "8081:8080"
+
+volumes:
+  raceday-sql-data:
